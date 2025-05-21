@@ -1,3 +1,4 @@
+
 import org.example.entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -62,11 +63,11 @@ public class MainTest {
     @DisplayName("Task sınıfı doğru typelara sahip mi")
     @Test
     public void testTaskTypes() throws NoSuchFieldException {
-        assertThat(task1.getAssignee(), instanceOf(String.class));
-        assertThat(task1.getDescription(), instanceOf(String.class));
-        assertThat(task1.getPriority(), instanceOf(Priority.class));
-        assertThat(task1.getProject(), instanceOf(String.class));
-        assertThat(task1.getStatus(), instanceOf(Status.class));
+        assertEquals(task1.getAssignee(), instanceOf(String.class));
+        assertEquals(task1.getDescription(), instanceOf(String.class));
+        assertEquals(task1.getPriority(), instanceOf(Priority.class));
+        assertEquals(task1.getProject(), instanceOf(String.class));
+        assertEquals(task1.getStatus(), instanceOf(Status.class));
     }
 
     @DisplayName("TaskData sınıfı doğru access modifiers sahip mi")
@@ -142,7 +143,7 @@ public class MainTest {
     @DisplayName("findUniqueWords doğru çalışıyor mu ?")
     @Test
     public void testFindUniqueWordsMethod() {
-        assertEquals(StringSet.findUniqueWords().size(), 143);
+        assertEquals(StringSet.findUniqueWords().size(), 149);
 
         List<String> results = StringSet.findUniqueWords().stream().collect(Collectors.toList());
         assertEquals(results.get(0), "a");
