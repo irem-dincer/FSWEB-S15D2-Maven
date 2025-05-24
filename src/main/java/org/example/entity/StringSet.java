@@ -1,5 +1,6 @@
 package org.example.entity;
 
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -25,29 +26,23 @@ public class StringSet {
             "is held in the British Library. Macmillan published a facsimile of the manuscript in 1886.";
 
     public static Set<String> findUniqueWords() {
-        // NOT: Test beklentilerine göre, sadece noktalama işaretlerini temizliyoruz
-        // Ancak test "1863" sayısını bekliyor, bu yüzden bazı özel karakterleri korumalıyız
-
-        // 1. Metni Unicode karakterleri koruyarak işle
-        // Sadece belirli noktalama işaretlerini kaldır, diğerlerini koru
-        String cleanText = text.replaceAll("[.,!;?]", "");
+        String cleanText = text.replaceAll("[^a-zA-Z\\s]", "");
 
         // 2. Metni küçük harfe çevir
         cleanText = cleanText.toLowerCase();
 
         // 3. Metni kelimelere ayır (boşluk, yeni satır vs. kullanarak)
         String[] words = cleanText.split("\\s+");
+        System.out.println("Before Length:"+ words.length);
 
-        // 4. TreeSet ile benzersiz kelimeleri alfabetik sırala
-        Set<String> uniqueWords = new TreeSet<>();
+        TreeSet<String> uniqueWords =new TreeSet<>(Arrays.asList(words));
+        System.out.println("After Length:"+ uniqueWords.size());
+         return  uniqueWords;
 
-        // 5. Kelimeleri eklerken Unicode karakterleri koru
-        for (String word : words) {
-            if (!word.trim().isEmpty()) {
-                uniqueWords.add(word);
-            }
-        }
 
-        return uniqueWords;
+
     }
+
+
+
 }

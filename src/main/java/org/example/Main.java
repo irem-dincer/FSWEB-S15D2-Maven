@@ -9,7 +9,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        Set<String> uniqueWords = StringSet.findUniqueWords();
+       /* Set<String> uniqueWords = StringSet.findUniqueWords();
         System.out.println("Unique words count: " + uniqueWords.size());
         System.out.println("Unique words in alphabetical order:");
         for (String word : uniqueWords) {
@@ -26,10 +26,7 @@ public class Main {
 
 
 
+    }*/
+        StringSet.findUniqueWords();
     }
-
-
-
-
-
-}
+    }
